@@ -27,7 +27,7 @@ What doesn't work yet:
 	
 	_Want to use your own app ID and sign-in page for redistribution?  See "Advanced authentication" section near the bottom._
 
-4. *Redeem your sign-in code using onedrive.js*
+4. **Redeem your sign-in code using onedrive.js**
 
    * If you installed globally using ``npm -g``, then run:
      
