@@ -1,0 +1,24 @@
+{
+  "name": "node-onedrive-unofficial",
+  "version": "0.0.1",
+  "description": "An unofficial node.js client for OneDrive",
+  "main": "onedrive.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/modest/node-onedrive-unofficial.git"
+  },
+  "keywords": [
+    "OneDrive",
+    "vroom"
+  ],
+  "author": "Greg Edmiston <greg.edmiston@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/modest/node-onedrive-unofficial/issues"
+  },
+  "homepage": "https://github.com/modest/node-onedrive-unofficial",
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "minimist": "^1.1.1"
+  }
+}
