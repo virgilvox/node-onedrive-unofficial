@@ -1,8 +1,11 @@
 {
   "name": "node-onedrive-unofficial",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An unofficial node.js client for OneDrive",
   "main": "onedrive.js",
+  "bin": {
+    "onedrive.js": "onedrive.js"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/modest/node-onedrive-unofficial.git"

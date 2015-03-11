@@ -100,7 +100,7 @@ if (require.main === module) {
       break;
       
     case 'api':
-      odRequest(null, {
+      odApiCall(null, {
         path: (argv._.length >= 2) ? argv._[1] : '',
         method: argv.method,
         body: argv.body,
