@@ -1,17 +1,17 @@
-# node-onedrive-unofficial
+# node-onedrive-unofficial v0.0.2
 
 `node-onedrive-unofficial` is a limited OneDrive client using the [new OneDrive API](http://dev.onedrive.com).
 
 What works:
 
 * authentication
-* uploading a single file (chunked uploader)
+* uploading a single file using the chunked uploader
 * raw API calls
 
 What doesn't work yet:
 
 * convenience methods for everything else
-* Express integration for OAuth2 (currently manual)
+* Passport integration for OAuth2 (currently manual)
 * self-hosted authentication server
 
 
@@ -21,13 +21,13 @@ What doesn't work yet:
 	
 	``npm -g install node-onedrive-unofficial``
 	
-3. Get a **sign-in code** for your Microsoft account here:
+3. Get a **one-time sign-in code** for your Microsoft account here:
 
 	[https://seattle.gregedmiston.com/scratch/onedrive-auth](https://seattle.gregedmiston.com/scratch/onedrive-auth/)
 	
-	_Want to use your own app ID for redistribution?  Follow [these instructions](http://onedrive.github.io/auth/msa_oauth.htm#code-flow) to get a Microsoft dev id. See instructions below._
+	_Want to use your own app ID and sign-in page for redistribution?  See "Advanced authentication" section near the bottom._
 
-4. Redeem your sign-in code to sign in.
+4. *Redeem your sign-in code using onedrive.js*
 
    * If you installed globally using ``npm -g``, then run:
      
@@ -41,7 +41,7 @@ What doesn't work yet:
 
    **For help:**
    
-   ``onedrive.js -h ``
+   ``onedrive.js --help ``
    
    **Get a folder listing of your OneDrive:**
 	
@@ -76,7 +76,7 @@ var onedrive = require('node-onedrive-unofficial');
 var account = null; // use built-in easy authentication
 ```
 
-The examples below use the built-in app ID.  These assume that you have already signed in using the command line **signin** command described in *Getting started*. If you'd like to use your own, see instructions at the bottom.
+The examples below use the built-in app ID.  These assume that you have already signed in using the command line **signin** command described in *Getting started*. 
 
 **Upload ./localfolder/foo.txt to /destination.txt**
 
@@ -100,7 +100,7 @@ onedrive.api( account, {
 });
 ```
 
-**Renaming /oldname.txt to /newname.txt**
+**Rename /oldname.txt to /newname.txt**
 
 ```js
 onedrive.api( account, {
@@ -114,13 +114,13 @@ onedrive.api( account, {
 });
 ```
 
-**Deleting file /filetodelete.txt**
+**Delete file /filetodelete.txt**
 
 ```js
 onedrive.api( account, {
   path: '/drive/root:/filetodelete.txt',
   method: 'DELETE'
-}, function( res, err) {
+}, function( response, err ) {
   if (!err) {
     // success
   }
