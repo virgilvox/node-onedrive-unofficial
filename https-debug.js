@@ -10,7 +10,7 @@ httpsDebug.request = function(options, cb) {
   var req = httpsOriginal.request(options, function(response) {
     console.log(chalk.gray('Response: '));
     console.log(chalk.blue.bold('HTTP/' + response.httpVersion + ' ' + response.statusCode + ' ' + response.statusMessage));
-    for (var i=0;i<response.rawHeaders.length;i+=2) {
+    if (response.rawHeaders) for (var i=0;i<response.rawHeaders.length;i+=2) {
       console.log( chalk.blue(response.rawHeaders[i] + ': ' + response.rawHeaders[i+1]));
     }
 

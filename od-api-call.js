@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!/usr/bin/env node
 var http = require('http');
 var https = require('https');
 var util = require('util');

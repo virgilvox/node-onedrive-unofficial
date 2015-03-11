@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var odApiCall = require('./od-api-call');
 var argv = require('minimist')(process.argv.slice(2));
 var fs = require('fs');

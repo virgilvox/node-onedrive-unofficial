@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var https = require('https');
 var util = require('util');
 var url = require('url');

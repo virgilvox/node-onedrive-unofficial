@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!/usr/bin/env node
 var odApiCall = require('./od-api-call');
 var odPut = require('./od-put');
 var microsoftAccount = require('./microsoft-account');
