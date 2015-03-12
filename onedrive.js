@@ -28,20 +28,20 @@ if (require.main === module) {
   
   var showHelp = function() {
     console.log();
-    console.log(chalk.blue('onedrive.js ' + chalk.bold('signin') + ' your-one-time-code ' +
+    console.log(chalk.cyan('onedrive ' + chalk.bold('signin') + ' your-one-time-code ' +
       '[--code='+chalk.underline('authcode')+'] ' +
       '[--config='+chalk.underline('microsoft-developer-config.json')+'] ' + 
       '[--token='+chalk.underline('microsoft-user-tokens.json')+'] [-v]'));
     console.log("\t\t authenticate to your Microsoft account");
-    console.log("\t\t Get a code at " + chalk.blue(chalk.underline("https://seattle.gregedmiston.com/scratch/onedrive-auth/")));
-    console.log(chalk.gray("\t\t onedrive.js signin 9af8a09e-82ad-4ffb-756c-fa4111d0529f"));
+    console.log("\t\t Get a code at " + chalk.cyan(chalk.underline("https://seattle.gregedmiston.com/scratch/onedrive-auth/")));
+    console.log(chalk.gray("\t\t onedrive signin 9af8a09e-82ad-4ffb-756c-fa4111d0529f"));
     console.log();
-    console.log(chalk.blue('onedrive.js ' + chalk.bold('put') + ' [-v] sourcefile targetpath'));
+    console.log(chalk.cyan('onedrive.js ' + chalk.bold('put') + ' [-v] sourcefile targetpath'));
     console.log("\t\t upload a file to a OneDrive path");
-    console.log(chalk.gray("\t\t onedrive.js put ~/Documents/foo.txt /foo.txt"));
+    console.log(chalk.gray("\t\t onedrive put ~/Documents/foo.txt /foo.txt"));
 
     console.log();
-    console.log(chalk.blue('onedrive.js ' + chalk.bold('api') + ' [-v] ' +
+    console.log(chalk.cyan('onedrive ' + chalk.bold('api') + ' [-v] ' +
      '[--method=' + chalk.underline('POST') + '] ' +
      '[--body=' + chalk.underline("'{body}'") + '] ' +
      '[--bodymime=' + chalk.underline('application/json') + '] ' +
@@ -51,7 +51,7 @@ if (require.main === module) {
     console.log(chalk.gray("\t\t onedrive.js api /drive/root:/Documents/:/children"));
     console.log(chalk.gray("\t\t onedrive.js api --method=DELETE /drive/root:/filetodelete"));
     console.log(chalk.gray("\t\t onedrive.js api --method=PATCH /drive/root:/oldname --body='{\"name\": \"newname\"}'"));
-    console.log();
+    console.log(chalk.black('')); // reset color to fix some consoles
   }
   
   if (argv._.length < 1) return showHelp();
