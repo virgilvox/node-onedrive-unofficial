@@ -29,7 +29,6 @@ if (require.main === module) {
   var showHelp = function() {
     console.log();
     console.log(chalk.cyan('onedrive ' + chalk.bold('signin') + ' your-one-time-code ' +
-      '[--code='+chalk.underline('authcode')+'] ' +
       '[--config='+chalk.underline('microsoft-developer-config.json')+'] ' + 
       '[--token='+chalk.underline('microsoft-user-tokens.json')+'] [-v]'));
     console.log("\t\t authenticate to your Microsoft account");
