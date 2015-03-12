@@ -1,4 +1,4 @@
-# node-onedrive-unofficial v0.0.3
+# node-onedrive-unofficial v0.0.4
 
 `node-onedrive-unofficial` is a limited OneDrive client using the [new OneDrive API](http://dev.onedrive.com).
 
@@ -16,13 +16,15 @@ What doesn't work yet:
 
 
 ## Getting started
-1. [Install node.js](https://nodejs.org/download/) (includes npm)
+1. [Install Node.js](https://nodejs.org/download/) (includes npm)
+
+   _Note to Windows users installing Node.js for the first time: You may need to sign out of your Windows account for your PATH changes to take effect._
+	
 2. Install **node-onedrive-unofficial** using npm
 	
 	``npm -g install node-onedrive-unofficial``
 	
 3. Get a **one-time sign-in code** for your Microsoft account here:
-
 	[https://seattle.gregedmiston.com/scratch/onedrive-auth](https://seattle.gregedmiston.com/scratch/onedrive-auth/)
 	
 	_Want to use your own app ID and sign-in page for redistribution?  See "Advanced authentication" section near the bottom._
@@ -31,7 +33,7 @@ What doesn't work yet:
 
    * If you installed globally using ``npm -g``, then run:
      
-     ``onedrive.js signin YOURCODEHERE``          
+     ``onedrive signin YOURCODEHERE``          
 
    * If you installed the package locally or don't have your PATH configured for npm, you can run it locally:
    
@@ -41,29 +43,29 @@ What doesn't work yet:
 
    **For help:**
    
-   ``onedrive.js --help ``
+   ``onedrive --help ``
    
    **Get a folder listing of your OneDrive:**
 	
-   ``onedrive.js api /drive/root/children ``
+   ``onedrive api /drive/root/children ``
    
 ###Using the command line
    
 **Upload ./localfolder/foo.txt to /destination.txt**
 
-``onedrive.js put ./localfolder/foo.txt /destination.txt``
+``onedrive put ./localfolder/foo.txt /destination.txt``
 
 **Get a folder listing of your OneDrive:**
 
-``onedrive.js api /drive/root/children``
+``onedrive api /drive/root/children``
 
 **Delete file /filetodelete.txt**
 
-``onedrive.js api --method=DELETE /drive/root:/filetodelete.txt``
+``onedrive api --method=DELETE /drive/root:/filetodelete.txt``
    
 **Rename /oldname.txt to /newname.txt:**
 
-``onedrive.js api --method=PATCH /drive/root:/oldname.txt --body='{"name": "newname.txt"}``
+``onedrive api --method=PATCH /drive/root:/oldname.txt --body='{"name": "newname.txt"}``
 
 See the [full list of OneDrive APIs](http://onedrive.github.io/README.htm#root-resources).
 
