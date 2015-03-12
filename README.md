@@ -1,4 +1,4 @@
-# node-onedrive-unofficial v0.0.4
+# node-onedrive-unofficial v0.0.5
 
 `node-onedrive-unofficial` is a limited OneDrive client using the [new OneDrive API](http://dev.onedrive.com).
 

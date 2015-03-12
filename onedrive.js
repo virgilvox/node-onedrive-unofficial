@@ -85,15 +85,16 @@ if (require.main === module) {
       if (argv._.length < 2) return showHelp();
       odPut(null, argv._[1], argv._[2], function( result, err ) {
         if (!err) {
-          console.log(chalk.green('Success:'));
-          console.log(result);
+          if (result) console.log(result);
+          console.log(chalk.green(chalk.bold('Success')));
           process.exit(0);
         } else {
           if (typeof err === 'object') {
             console.error(chalk.red(JSON.stringify(err, null, 2)));
-          } else {
+          } else if (err) {
             console.error(chalk.red(err));
           }
+          console.error(chalk.red(chalk.bold('Failed')));
           process.exit(1);
         }
       });
