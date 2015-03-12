@@ -48,7 +48,7 @@ if (require.main === module) {
      'apipath'
    ));
     console.log("\t\t send a raw API request via HTTPS");
-    console.log(chalk.gray("\t\t onedrive api /drive/root:/Documents/:/children"));
+    console.log(chalk.gray("\t\t onedrive api /drive/root:/Documents:/children"));
     console.log(chalk.gray("\t\t onedrive api --method=DELETE /drive/root:/filetodelete"));
     console.log(chalk.gray("\t\t onedrive api --method=PATCH /drive/root:/oldname --body='{\"name\": \"newname\"}'"));
     console.log(chalk.black('.')); // reset color to fix some consoles
