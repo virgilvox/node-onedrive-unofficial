@@ -1,4 +1,4 @@
-# node-onedrive-unofficial v0.0.2
+# node-onedrive-unofficial v0.0.3
 
 `node-onedrive-unofficial` is a limited OneDrive client using the [new OneDrive API](http://dev.onedrive.com).
 
@@ -120,7 +120,7 @@ onedrive.api( account, {
 onedrive.api( account, {
   path: '/drive/root:/filetodelete.txt',
   method: 'DELETE'
-}, function( response, err ) {
+}, function(response, err) {
   if (!err) {
     // success
   }
@@ -142,7 +142,7 @@ There are 2 options for developer IDs:
 ### Token storage
 There are 2 options for storing user tokens:
 
-1. **Use the default user token storage.**  After signin, tokens are stored as `.microsoft-user-tokens.json` in your user's home folder. By default, tokens are automatically read from this path and written with updated tokens. )
+1. **Use the default user token storage.**  After signin, tokens are stored as `.microsoft-user-tokens.json` in your user's home folder. By default, tokens are automatically read from this path and written with updated tokens. 
    * **command line**:  No arguments are necessary.
    * **node**: Passing `null` for the first argument will use the default token storage.
 2. **Provide your own token storage.**
