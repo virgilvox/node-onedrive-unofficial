@@ -36,7 +36,7 @@ if (require.main === module) {
     console.log("\t\t Get a code at " + chalk.cyan(chalk.underline("https://seattle.gregedmiston.com/scratch/onedrive-auth/")));
     console.log(chalk.gray("\t\t onedrive signin 9af8a09e-82ad-4ffb-756c-fa4111d0529f"));
     console.log();
-    console.log(chalk.cyan('onedrive.js ' + chalk.bold('put') + ' [-v] sourcefile targetpath'));
+    console.log(chalk.cyan('onedrive ' + chalk.bold('put') + ' [-v] sourcefile targetpath'));
     console.log("\t\t upload a file to a OneDrive path");
     console.log(chalk.gray("\t\t onedrive put ~/Documents/foo.txt /foo.txt"));
 
@@ -48,10 +48,10 @@ if (require.main === module) {
      'apipath'
    ));
     console.log("\t\t send a raw API request via HTTPS");
-    console.log(chalk.gray("\t\t onedrive.js api /drive/root:/Documents/:/children"));
-    console.log(chalk.gray("\t\t onedrive.js api --method=DELETE /drive/root:/filetodelete"));
-    console.log(chalk.gray("\t\t onedrive.js api --method=PATCH /drive/root:/oldname --body='{\"name\": \"newname\"}'"));
-    console.log(chalk.black('')); // reset color to fix some consoles
+    console.log(chalk.gray("\t\t onedrive api /drive/root:/Documents/:/children"));
+    console.log(chalk.gray("\t\t onedrive api --method=DELETE /drive/root:/filetodelete"));
+    console.log(chalk.gray("\t\t onedrive api --method=PATCH /drive/root:/oldname --body='{\"name\": \"newname\"}'"));
+    console.log(chalk.black('.')); // reset color to fix some consoles
   }
   
   if (argv._.length < 1) return showHelp();
