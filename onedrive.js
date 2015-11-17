@@ -4,19 +4,19 @@ var odPut = require('./od-put');
 var microsoftAccount = require('./microsoft-account');
 
 module.exports = {
-  
+
   signin: function( microsoftAccountConfig, callback ) {
     return microsoftAccount.getAccessToken( microsoftAccountConfig, callback );
   },
-  
+
   put: function( microsoftAccountConfig, srcFilePath, destinationPath, callback ) {
     return odPut( microsoftAccountConfig, srcFilePath, destinationPath, callback );
   },
-  
+
   api: function( microsoftAccountConfig, options, callback ) {
     return odApiCall( microsoftAccountConfig, options, callback );
   }
-  
+
 };
 
 
@@ -24,12 +24,12 @@ module.exports = {
 if (require.main === module) {
   var argv = require('minimist')(process.argv.slice(2));
   var chalk = require('chalk');
-  
-  
+
+
   var showHelp = function() {
     console.log();
     console.log(chalk.cyan('onedrive ' + chalk.bold('signin') + ' your-one-time-code ' +
-      '[--config='+chalk.underline('microsoft-developer-config.json')+'] ' + 
+      '[--config='+chalk.underline('microsoft-developer-config.json')+'] ' +
       '[--token='+chalk.underline('microsoft-user-tokens.json')+'] [-v]'));
     console.log("\t\t authenticate to your Microsoft account");
     console.log("\t\t Get a code at " + chalk.cyan(chalk.underline("https://seattle.gregedmiston.com/scratch/onedrive-auth/")));
@@ -52,9 +52,9 @@ if (require.main === module) {
     console.log(chalk.gray("\t\t onedrive api --method=PATCH /drive/root:/oldname --body='{\"name\": \"newname\"}'"));
     console.log(chalk.black('.')); // reset color to fix some consoles
   }
-  
+
   if (argv._.length < 1) return showHelp();
-  
+
   switch (argv._[0]) {
     case 'signin':
       if (argv._.length < 2) return showHelp();
@@ -79,7 +79,7 @@ if (require.main === module) {
         }
       });
       break;
-      
+
     case 'put':
       if (argv._.length < 2) return showHelp();
       odPut(null, argv._[1], argv._[2], function( result, err ) {
@@ -98,7 +98,7 @@ if (require.main === module) {
         }
       });
       break;
-      
+
     case 'api':
       odApiCall(null, {
         path: (argv._.length >= 2) ? argv._[1] : '',
@@ -118,10 +118,10 @@ if (require.main === module) {
         }
       });
       break;
-      
+
     default:
       showHelp();
-    
+
   }
-  
+
 }

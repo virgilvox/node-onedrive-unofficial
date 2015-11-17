@@ -15,10 +15,11 @@ module.exports = function(microsoftAccountConfig, options, callback) {
   var method = options.method ? options.method.toUpperCase() : 'GET';
   var path = options.path || '';
   var body = options.body || null;
+  var headerParams = options.headers || null;
   if (body != null && typeof body === 'object' && body.constructor.name === 'Object') body = JSON.stringify(body, null, 2);
-  
+
   if (!options.host) path = getValidPath(path);
-  
+
   // if no config file provided, read it from the filesystem
   if (!microsoftAccountConfig) {
     microsoftAccount.getConfigFromFiles( null, null, null, function( config, err ) {
@@ -30,7 +31,7 @@ module.exports = function(microsoftAccountConfig, options, callback) {
     });
     return;
   }
-  
+
   microsoftAccount.getAccessToken(microsoftAccountConfig, function(updatedTokens, err) {
     if (err) {
       callback(null, updatedTokens, err);
@@ -45,14 +46,19 @@ module.exports = function(microsoftAccountConfig, options, callback) {
       if (options.bodymime) {
         headers['Content-Type'] = options.bodymime;
       } else {
-        if (body && body.substr && 
+        if (body && body.substr &&
           (body.substr(0,1) == '{' || body.substr(0,1) == '[') ) {
         // assume json
         headers['Content-Type'] = 'application/json';
         }
       }
       headers['Authorization'] = 'Bearer ' + updatedTokens.access_token;
-      
+
+      headerParams.keys(h).forEach(function(key) {
+          headers[key]= o[key];
+        });
+
+
       var reqOptions = {
         hostname: options.host || 'api.onedrive.com',
         port: 443,
@@ -61,9 +67,9 @@ module.exports = function(microsoftAccountConfig, options, callback) {
         agent: options.agent,
         headers: headers
       };
-      
+
       var responseData = '';
-      
+
       var request = https.request(reqOptions, function(response) {
         response.on('data', function(data) {
           responseData += data;
@@ -87,17 +93,17 @@ module.exports = function(microsoftAccountConfig, options, callback) {
           callback( null, updatedTokens, e);
         });
       });
-            
+
       request.on('err', function(e) {
         callback( null, updatedTokens, e);
       });
-      
+
       if (body) request.write(body);
-      
+
       request.end();
     }
   });
-    
+
 }
 
 function getValidPath(path) {
@@ -121,7 +127,7 @@ if (require.main === module) {
   var argv = require('minimist')(process.argv.slice(2));
   var chalk = require('chalk');
   var path = (argv._.length > 0) ? argv._[0] : '';
-  
+
   module.exports(null, {
     path: path,
     method: argv.method,
