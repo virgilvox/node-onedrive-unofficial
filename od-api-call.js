@@ -54,8 +54,8 @@ module.exports = function(microsoftAccountConfig, options, callback) {
       }
       headers['Authorization'] = 'Bearer ' + updatedTokens.access_token;
 
-      headerParams.keys(h).forEach(function(key) {
-          headers[key]= o[key];
+      Object.keys(headerParams).forEach(function(key) {
+          headers[key]= headerParams[key];
         });
 
 

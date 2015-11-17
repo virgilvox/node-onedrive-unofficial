@@ -1,6 +1,6 @@
 {
   "name": "node-onedrive-unofficial",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "An unofficial node.js client for OneDrive",
   "main": "onedrive.js",
   "bin": {
